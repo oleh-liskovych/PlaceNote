@@ -13,8 +13,9 @@ import android.view.View;
 
 import com.olehliskovych.placenote.R;
 import com.olehliskovych.placenote.databinding.ActivityMainBinding;
+import com.olehliskovych.placenote.ui.base.BaseActivity;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ActivityMainBinding binding;
@@ -39,6 +40,16 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         binding.navView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    protected void setupUI() {
+
+    }
+
+    @Override
+    public ActivityMainBinding getBindng() {
+        return null;
     }
 
     @Override

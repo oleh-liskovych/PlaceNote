@@ -104,3 +104,5 @@ gradle-app.setting
 #/build
 #/captures
 #.externalNativeBuild
+
+.idea/
