@@ -17,7 +17,6 @@ public abstract class BaseActivity extends DaggerAppCompatActivity{
     private static final String FRAGMENT_KEY = "keyFragment";
 
     protected abstract void setupUI();
-    public abstract ActivityMainBinding getBindng();
 
     protected BaseFragment currentFragment;
 
@@ -37,6 +36,16 @@ public abstract class BaseActivity extends DaggerAppCompatActivity{
 
         if (savedInstanceState != null) {
             restoreFragment(savedInstanceState);
+        }
+    }
+
+    protected enum StatusBarColor {
+        Master, Detail
+    }
+
+    protected void setStatusBarColor(StatusBarColor color) {
+        if (color.equals(StatusBarColor.Master)) {
+
         }
     }
 

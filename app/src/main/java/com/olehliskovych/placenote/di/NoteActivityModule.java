@@ -1,18 +1,16 @@
 package com.olehliskovych.placenote.di;
 
 import com.olehliskovych.placenote.di.global.FragmentManagerModule;
-import com.olehliskovych.placenote.di.global.WindowModule;
 import com.olehliskovych.placenote.di.scopes.ActivityScope;
 import com.olehliskovych.placenote.ui.base.BaseActivity;
-import com.olehliskovych.placenote.ui.main.MainActivity;
+import com.olehliskovych.placenote.ui.note.NoteActivity;
 
 import dagger.Binds;
 import dagger.Module;
 
-@Module(includes = {FragmentManagerModule.class, WindowModule.class})
-public interface MainActivityModule {
+@Module(includes = {FragmentManagerModule.class})
+public interface NoteActivityModule {
 
     @Binds @ActivityScope
-    BaseActivity bindBaseActivity(MainActivity activity);
-
+    BaseActivity bindBaseActivity(NoteActivity activity);
 }

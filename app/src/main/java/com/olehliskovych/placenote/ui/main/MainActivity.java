@@ -7,7 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -24,6 +24,14 @@ public class MainActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+
+        setupUI();
+    }
+
+    @Override
+    protected void setupUI() {
+
         setSupportActionBar(binding.coordinator.toolbar);
 
         binding.coordinator.fab.setOnClickListener(new View.OnClickListener() {
@@ -40,16 +48,6 @@ public class MainActivity extends BaseActivity
         toggle.syncState();
 
         binding.navView.setNavigationItemSelectedListener(this);
-    }
-
-    @Override
-    protected void setupUI() {
-
-    }
-
-    @Override
-    public ActivityMainBinding getBindng() {
-        return null;
     }
 
     @Override
@@ -82,8 +80,7 @@ public class MainActivity extends BaseActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        binding.drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 }
