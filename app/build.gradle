@@ -26,6 +26,7 @@ ext {
     DAGGER = '2.16'
     ROOM = '1.1.1'
     GSON = '2.8.2'
+    REALM = '5.2.0'
 }
 
 dependencies {
@@ -49,6 +50,9 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:${ROOM}"
     annotationProcessor "android.arch.persistence.room:compiler:${ROOM}"
     androidTestImplementation "android.arch.persistence.room:testing:${ROOM}"
+
+    // Realm
+    implementation "io.realm:realm-gradle-plugin:${REALM}"
 
     // Gson
     implementation "com.google.code.gson:gson:${GSON}"

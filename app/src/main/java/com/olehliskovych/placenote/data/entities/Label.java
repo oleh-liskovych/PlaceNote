@@ -1,14 +1,34 @@
 package com.olehliskovych.placenote.data.entities;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-@Entity
-public class Label {
+@Entity(tableName = "labels")
+public class Label implements Parcelable {
 
+    public static final Parcelable.Creator<Label> CREATOR = new Parcelable.Creator<Label>() {
+        public Label createFromParcel(Parcel in) {
+            return new Label(in);
+        }
+
+        public Label[] newArray(int size) {
+            return new Label[size];
+        }
+    };
+
+    @PrimaryKey
     private String name;
 
     public Label(String name) {
         this.name = name;
+    }
+
+    @Ignore
+    public Label(Parcel in) {
+        this.name = in.readString();
     }
 
     public String getName() {
@@ -17,5 +37,15 @@ public class Label {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int i) {
+        dest.writeString(name);
     }
 }

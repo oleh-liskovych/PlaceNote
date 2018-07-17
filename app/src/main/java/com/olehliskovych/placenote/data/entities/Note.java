@@ -11,17 +11,22 @@ import android.os.Parcelable;
 
 import com.olehliskovych.placenote.data.Converters;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.UUID;
 
 @Entity(tableName = "notes")
 public class Note implements Parcelable{
 
-//    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
-//        public N
-//    }
+    public static final Parcelable.Creator<Note> CREATOR = new Parcelable.Creator<Note>() {
+        public Note createFromParcel(Parcel in) {
+            return new Note(in);
+        }
+
+        public Note[] newArray(int size) {
+            return new Note[size];
+        }
+    };
 
     @PrimaryKey
     private String id;
@@ -32,9 +37,9 @@ public class Note implements Parcelable{
     private Location location;
 
     @TypeConverters(Converters.class) // todo: move this row to AppDatabase class
-    private List<Label> labels;
+    private ArrayList<Label> labels;
 
-    @TypeConverters(Converters.class)
+    @TypeConverters(Converters.class)  // todo: move this row to AppDatabase class
     @ColumnInfo(name = "update_date")
     private Date updateDate;
 
@@ -45,11 +50,11 @@ public class Note implements Parcelable{
         message = "";
         radius = 100;
         this.location = location;
-        labels = new LinkedList<>();
+        labels = new ArrayList<>();
         updateDate = new Date();
     }
 
-    public Note(String id, String title, String message, int radius, Location location, List<Label> labels, Date updateDate) {
+    public Note(String id, String title, String message, int radius, Location location, ArrayList<Label> labels, Date updateDate) {
         this.id = id;
         this.title = title;
         this.message = message;
@@ -59,13 +64,43 @@ public class Note implements Parcelable{
         this.updateDate = updateDate;
     }
 
+    @Ignore
+    public Note(Parcel in) {
+        this.id = in.readString();
+        this.id = in.readString();
+        this.message = in.readString();
+        this.radius = in.readInt();
+        this.location = in.readParcelable(Location.class.getClassLoader());
+        this.labels = in.createTypedArrayList(Label.CREATOR);
+        this.updateDate = new Date(in.readLong());
+    }
+
     @Override
     public int describeContents() {
         return 0;
     }
 
     @Override
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel dest, int i) {
+        dest.writeString(this.id);
+        dest.writeString(this.title);
+        dest.writeString(this.message);
+        dest.writeInt(this.radius);
+        dest.writeParcelable(this.location, i);
+        dest.writeTypedList(this.labels);
+        dest.writeLong(updateDate.getTime());
+    }
 
+    @Override
+    public String toString() {
+        return "Note{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", message='" + message + '\'' +
+                ", radius=" + radius +
+                ", location=" + location +
+                ", labels=" + labels +
+                ", updateDate=" + updateDate +
+                '}';
     }
 }

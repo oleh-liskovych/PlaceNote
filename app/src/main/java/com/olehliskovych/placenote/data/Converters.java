@@ -13,7 +13,7 @@ import java.util.List;
 public class Converters {
 
     @TypeConverter
-    public String fromLabelList(List<Label> labels) {
+    public static String fromLabelList(List<Label> labels) {
         if (labels == null) {
             return null;
         }
@@ -24,7 +24,7 @@ public class Converters {
     }
 
     @TypeConverter
-    public List<Label> toLabelsList(String labelsString) {
+    public static List<Label> toLabelsList(String labelsString) {
         if (labelsString == null) {
             return null;
         }
