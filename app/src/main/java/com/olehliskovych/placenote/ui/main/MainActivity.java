@@ -10,35 +10,25 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.olehliskovych.placenote.R;
-import com.olehliskovych.placenote.data.Repository.realm.RealmManager;
-import com.olehliskovych.placenote.data.entities.Note;
+import com.olehliskovych.placenote.data.Repository.Repository;
 import com.olehliskovych.placenote.databinding.ActivityMainBinding;
 import com.olehliskovych.placenote.ui.base.BaseActivity;
 
-import java.util.List;
-
 import javax.inject.Inject;
-
-import io.realm.Realm;
-import io.realm.RealmResults;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ActivityMainBinding binding;
-//    @Inject
-//    RealmManager realm;
+    @Inject
+    Repository repository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-//        RealmResults<Note> result = realm.where(Note.class)
-//                .contains("labels", "Huy")
-//                .findAll();
-//
-//        List<Note> notes = realm.copyFromRealm(result);
+        repository.getAllLabels();
 
 
         setupUI();

@@ -8,9 +8,14 @@ import com.olehliskovych.placenote.data.entities.Note;
 
 import java.util.List;
 
-public interface Repository {
-    List<Note> getNotesForLabel(@Nullable Label label);
-    List<Label> getAllLabels();
-    void updateNote(@NonNull Note note);
+import io.reactivex.Completable;
+import io.reactivex.Flowable;
 
+public interface Repository {
+    Flowable<List<Note>> getNotesForLabel(@Nullable Label label);
+    Flowable<List<Label>> getAllLabels();
+    Completable updateNote(@NonNull Note note);
+    Completable updateLabel(@NonNull Label label);
+    Completable deleteNote(@NonNull Note note);
+    Completable deleteLabel(@NonNull Label label);
 }

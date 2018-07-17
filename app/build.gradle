@@ -18,6 +18,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     dataBinding {
         enabled = true
     }
@@ -29,7 +34,6 @@ realm {
 
 ext {
     DAGGER = '2.16'
-    ROOM = '1.1.1'
     GSON = '2.8.2'
     REALM = '3.0.0'
     rxANDROID = "2.0.2"
@@ -53,18 +57,13 @@ dependencies {
     implementation "com.google.dagger:dagger-android:${DAGGER}"
     implementation "com.google.dagger:dagger-android-support:${DAGGER}"
 
-    // Room
-    implementation "android.arch.persistence.room:runtime:${ROOM}"
-    annotationProcessor "android.arch.persistence.room:compiler:${ROOM}"
-    androidTestImplementation "android.arch.persistence.room:testing:${ROOM}"
-
     // RealmManager
     implementation "io.realm:android-adapters:${REALM}"
 
     // Gson
     implementation "com.google.code.gson:gson:${GSON}"
 
-    //    Rx
+    // Rx
     implementation "io.reactivex.rxjava2:rxandroid:${rxANDROID}"
     implementation "io.reactivex.rxjava2:rxjava:${rxJAVA}"
 }

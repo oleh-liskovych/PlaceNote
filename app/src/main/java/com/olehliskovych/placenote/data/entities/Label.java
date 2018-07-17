@@ -2,6 +2,7 @@ package com.olehliskovych.placenote.data.entities;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
@@ -19,23 +20,27 @@ public class Label extends RealmObject implements Parcelable {
     };
 
     @PrimaryKey
+    @NonNull
     private String name;
 
-    public Label(String name) {
+    public Label(@NonNull String name) {
         this.name = name;
     }
 
-    public Label() { }
+    public Label() {
+        name = "";
+    }
 
     public Label(Parcel in) {
         this.name = in.readString();
     }
 
+    @NonNull
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(@NonNull String name) {
         this.name = name;
     }
 
