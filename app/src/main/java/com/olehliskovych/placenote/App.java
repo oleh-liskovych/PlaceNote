@@ -1,9 +1,11 @@
 package com.olehliskovych.placenote;
 
+
 import com.olehliskovych.placenote.di.DaggerAppComponent;
 
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerApplication;
+import io.realm.Realm;
 
 public class App extends DaggerApplication{
 
@@ -13,6 +15,7 @@ public class App extends DaggerApplication{
     public void onCreate() {
         super.onCreate();
         instance = this;
+        Realm.init(this);
     }
 
     public static App getInstance() {

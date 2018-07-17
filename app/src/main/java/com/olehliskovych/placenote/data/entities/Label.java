@@ -1,13 +1,12 @@
 package com.olehliskovych.placenote.data.entities;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Ignore;
-import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-@Entity(tableName = "labels")
-public class Label implements Parcelable {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class Label extends RealmObject implements Parcelable {
 
     public static final Parcelable.Creator<Label> CREATOR = new Parcelable.Creator<Label>() {
         public Label createFromParcel(Parcel in) {
@@ -26,7 +25,8 @@ public class Label implements Parcelable {
         this.name = name;
     }
 
-    @Ignore
+    public Label() { }
+
     public Label(Parcel in) {
         this.name = in.readString();
     }
