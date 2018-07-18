@@ -21,6 +21,9 @@ public class RealmManager implements Repository {
     @Inject
     Realm realm;
 
+    @Inject
+    RealmManager(){}
+
     @Override
     public Flowable<List<Note>> getNotesForLabel(@Nullable Label label) {
         RealmResults<Note> results;

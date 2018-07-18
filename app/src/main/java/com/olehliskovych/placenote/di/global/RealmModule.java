@@ -19,11 +19,6 @@ public abstract class RealmModule {
     }
 
     @AppScope
-    @Provides
-    static RealmManager provideRealmManager() {
-        return new RealmManager();
-    }
-
     @Binds
     abstract Repository bindRepository(RealmManager realmManager);
 

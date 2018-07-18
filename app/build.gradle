@@ -36,8 +36,10 @@ ext {
     DAGGER = '2.16'
     GSON = '2.8.2'
     REALM = '3.0.0'
-    rxANDROID = "2.0.2"
-    rxJAVA = "2.1.10"
+    rxANDROID = '2.0.2'
+    rxJAVA = '2.1.10'
+    FLEXBOX = '1.0.0'
+    GOOGLE_MAPS = '15.0.1'
 }
 
 dependencies {
@@ -66,4 +68,7 @@ dependencies {
     // Rx
     implementation "io.reactivex.rxjava2:rxandroid:${rxANDROID}"
     implementation "io.reactivex.rxjava2:rxjava:${rxJAVA}"
+
+    implementation "com.google.android:flexbox:${FLEXBOX}"
+    implementation "com.google.android.gms:play-services-maps:${GOOGLE_MAPS}"
 }

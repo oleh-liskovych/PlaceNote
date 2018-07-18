@@ -11,6 +11,7 @@ import android.view.View;
 
 import com.olehliskovych.placenote.R;
 import com.olehliskovych.placenote.data.Repository.Repository;
+import com.olehliskovych.placenote.data.Repository.realm.RealmManager;
 import com.olehliskovych.placenote.databinding.ActivityMainBinding;
 import com.olehliskovych.placenote.ui.base.BaseActivity;
 
@@ -20,6 +21,7 @@ public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ActivityMainBinding binding;
+
     @Inject
     Repository repository;
 
@@ -39,13 +41,8 @@ public class MainActivity extends BaseActivity
 
         setSupportActionBar(binding.coordinator.toolbar);
 
-        binding.coordinator.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Launching Note Detail Activity", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        binding.coordinator.fab.setOnClickListener(view -> Snackbar.make(view, "Launching Note Detail Activity", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show());
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, binding.drawerLayout, binding.coordinator.toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

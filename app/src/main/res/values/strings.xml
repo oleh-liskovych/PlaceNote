@@ -10,4 +10,11 @@
 
     <string name="bottom_navigation_button_map">Map</string>
     <string name="bottom_navigation_button_list">List</string>
+
+    <string name="hint_title">Title</string>
+    <string name="hint_note_text">Note text</string>
+    <string name="frag_note_details_radius_label_text">Radius: </string>
+    <string name="frag_note_details_radius_default_value">100</string>
+    <string name="frag_note_details_radius_units">meters</string>
+    <string name="frag_note_details_address_hint">Address</string>
 </resources>
