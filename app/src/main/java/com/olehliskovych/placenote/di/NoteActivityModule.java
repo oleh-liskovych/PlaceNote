@@ -10,6 +10,8 @@ import com.olehliskovych.placenote.ui.base.BaseActivity;
 import com.olehliskovych.placenote.ui.note.NoteActivity;
 import com.olehliskovych.placenote.ui.note.details.NoteDetailsFragment;
 import com.olehliskovych.placenote.ui.note.details.NoteDetailsFragmentModule;
+import com.olehliskovych.placenote.ui.note.picking.LabelsPickingFragment;
+import com.olehliskovych.placenote.ui.note.picking.LabelsPickingFragmentModule;
 
 import dagger.Binds;
 import dagger.Module;
@@ -25,6 +27,10 @@ public interface NoteActivityModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = NoteDetailsFragmentModule.class)
     NoteDetailsFragment noteDetailsFragment();
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = LabelsPickingFragmentModule.class)
+    LabelsPickingFragment labelsPickingFragment();
 
     @ActivityScope
     @Provides
