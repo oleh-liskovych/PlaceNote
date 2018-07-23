@@ -17,7 +17,7 @@ public interface ActivityBuildingModule {
     MainActivity mainActivity();
 
     @ActivityScope
-    @ContributesAndroidInjector(modules = NoteActivityModule.class)
+    @ContributesAndroidInjector(modules = {NoteActivityModule.class, MapModule.class})
     NoteActivity noteActivity();
 
 }

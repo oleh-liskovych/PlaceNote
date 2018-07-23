@@ -6,13 +6,18 @@
     <data />
 
 
-    <!--<ScrollView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent">-->
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
 
         <android.support.constraint.Guideline
@@ -71,6 +76,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/common_margin_between_elements"
+            android:animateLayoutChanges="true"
             app:alignItems="flex_start"
             app:dividerDrawable="@drawable/shape_labels_flexbox_divider"
             app:flexWrap="wrap"
@@ -83,51 +89,51 @@
                 style="@style/Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Badge" />
+                android:text="Badge" />
 
             <TextView
                 style="@style/Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Badge" />
+                android:text="Badge" />
 
             <TextView
                 style="@style/Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Badge" />
+                android:text="Badge" />
 
             <TextView
                 style="@style/Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Badge" />
+                android:text="Badge" />
 
             <TextView
                 style="@style/Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Badge" />
+                android:text="Badge" />
 
             <TextView
                 style="@style/Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Badge" />
-
-            <TextView
-                style="@style/Label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                tools:text="Badge" />
+                android:text="Badge" />
 
             <TextView
                 style="@style/Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                tools:text="Badge" />
+                android:text="Badge" />
+
+            <TextView
+                style="@style/Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="Badge" />
 
         </com.google.android.flexbox.FlexboxLayout>
 
@@ -191,6 +197,32 @@
         </com.google.android.gms.maps.MapView>
 
 
+
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/labels_button"
+            style="@style/NoteDetailsButtons"
+            android:drawableStart="@drawable/ic_label_black_24dp"
+            android:text="@string/frag_note_details_labels_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/delete_button"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <Button
+            android:id="@+id/delete_button"
+            style="@style/NoteDetailsButtons"
+            android:drawableStart="@drawable/ic_delete_black_24dp"
+            android:text="@string/frag_note_details_delete_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/labels_button" />
+
+
     </android.support.constraint.ConstraintLayout>
-    <!--</ScrollView>-->
+
 </layout>

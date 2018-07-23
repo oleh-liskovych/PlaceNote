@@ -19,6 +19,7 @@ public abstract class BaseActivity extends DaggerAppCompatActivity{
     protected abstract void setupUI();
 
     protected BaseFragment currentFragment;
+    protected String currentFragmentName;
 
     @Inject
     FragmentManager fragmentManager;
@@ -53,15 +54,15 @@ public abstract class BaseActivity extends DaggerAppCompatActivity{
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         if (currentFragment != null) {
-            String fragmentName = currentFragment.getClass().getName();
-            fragmentManager.putFragment(outState, fragmentName, currentFragment);
+            currentFragmentName = currentFragment.getClass().getName();
+            fragmentManager.putFragment(outState, currentFragmentName, currentFragment);
         }
     }
 
     protected void restoreFragment(@NonNull Bundle savedInstanceState) {
-        String fragmentName = savedInstanceState.getString(FRAGMENT_KEY, null);
-        if (fragmentName != null) {
-            currentFragment = (BaseFragment) fragmentManager.getFragment(savedInstanceState, fragmentName);
+        currentFragmentName = savedInstanceState.getString(FRAGMENT_KEY, null);
+        if (currentFragmentName != null) {
+            currentFragment = (BaseFragment) fragmentManager.getFragment(savedInstanceState, currentFragmentName);
         }
     }
 

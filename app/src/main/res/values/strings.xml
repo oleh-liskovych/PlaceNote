@@ -17,4 +17,6 @@
     <string name="frag_note_details_radius_default_value">100</string>
     <string name="frag_note_details_radius_units">meters</string>
     <string name="frag_note_details_address_hint">Address</string>
+    <string name="frag_note_details_labels_button">Labels</string>
+    <string name="frag_note_details_delete_button">Delete</string>
 </resources>
