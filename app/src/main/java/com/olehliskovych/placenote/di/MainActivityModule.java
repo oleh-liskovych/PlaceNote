@@ -15,4 +15,6 @@ public interface MainActivityModule {
     @Binds @ActivityScope
     BaseActivity bindBaseActivity(MainActivity activity);
 
+
+
 }

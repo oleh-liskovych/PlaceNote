@@ -1,36 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
-    android:padding="@dimen/common_margin_between_elements"
-    android:gravity="center_vertical"
-    >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <data>
+        <import type="com.olehliskovych.placenote.data.entities.Label"/>
+        <variable
+            name="label"
+            type="Label"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_label_black_24dp"
-        android:contentDescription="@null"
-        />
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/common_margin_between_elements">
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        tools:text="Label name"
-        android:textColor="@color/default_text_color"
-        android:layout_weight="1"
-        android:layout_marginStart="@dimen/common_margin_between_elements"
-        android:layout_marginEnd="@dimen/common_margin_between_elements"
-        />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_label_black_24dp" />
 
-    <CheckBox
-        android:id="@+id/checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/common_margin_between_elements"
+            android:layout_marginStart="@dimen/common_margin_between_elements"
+            android:layout_weight="1"
+            android:text="@{label.name}"
+            android:textColor="@color/default_text_color"
+            tools:text="Label name" />
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
 
 
+    </LinearLayout>
 
-</LinearLayout>
+</layout>
