@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'realm-android'
 
 android {
@@ -53,8 +56,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     // Dagger2
-    annotationProcessor "com.google.dagger:dagger-compiler:${DAGGER}"
-    annotationProcessor "com.google.dagger:dagger-android-processor:${DAGGER}"
+//    annotationProcessor "com.google.dagger:dagger-compiler:${DAGGER}"
+//    annotationProcessor "com.google.dagger:dagger-android-processor:${DAGGER}"
+    kapt "com.google.dagger:dagger-compiler:${DAGGER}"
+    kapt "com.google.dagger:dagger-android-processor:${DAGGER}"
     implementation "com.google.dagger:dagger:${DAGGER}"
     implementation "com.google.dagger:dagger-android:${DAGGER}"
     implementation "com.google.dagger:dagger-android-support:${DAGGER}"
@@ -71,4 +76,8 @@ dependencies {
 
     implementation "com.google.android:flexbox:${FLEXBOX}"
     implementation "com.google.android.gms:play-services-maps:${GOOGLE_MAPS}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

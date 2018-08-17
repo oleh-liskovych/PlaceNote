@@ -13,9 +13,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <!--<style name="Main" parent="AppTheme.NoActionBar">-->
+    <style name="Main" parent="AppTheme.NoActionBar">
+    </style>
         <!--<item name="statusBarColor">@color/colorPrimary</item>-->
-    <!--</style>-->
 
     <style name="LightTheme" parent="AppTheme.NoActionBar">
         <!--<item name="android:statusBarColor"></item>-->
