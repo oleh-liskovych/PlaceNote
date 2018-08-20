@@ -2,6 +2,7 @@ package com.olehliskovych.placenote.di
 
 import android.app.Activity
 import com.olehliskovych.placenote.di.global.FragmentManagerModule
+import com.olehliskovych.placenote.di.global.MapModule
 import com.olehliskovych.placenote.di.global.WindowModule
 import com.olehliskovych.placenote.di.scopes.ActivityScope
 import com.olehliskovych.placenote.di.scopes.FragmentScope
@@ -28,7 +29,7 @@ abstract class MainActivityModule {
     abstract fun bindBaseActivity(activity: MainActivity): BaseActivity
 
     @FragmentScope
-    @ContributesAndroidInjector(modules = [MainMapFragmentModule::class])
+    @ContributesAndroidInjector(modules = [MainMapFragmentModule::class, MapModule::class])
     abstract fun mainMapFragment() : MainMapFragment
 
     @FragmentScope

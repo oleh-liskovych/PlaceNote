@@ -42,6 +42,7 @@ ext {
     rxANDROID = '2.0.2'
     rxJAVA = '2.1.10'
     FLEXBOX = '1.0.0'
+    PAGING = '1.0.1'
     GOOGLE_MAPS = '15.0.1'
 }
 
@@ -77,6 +78,9 @@ dependencies {
     implementation "com.google.android:flexbox:${FLEXBOX}"
     implementation "com.google.android.gms:play-services-maps:${GOOGLE_MAPS}"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // Paging
+    implementation "android.arch.paging:runtime:${PAGING}"
 }
 repositories {
     mavenCentral()

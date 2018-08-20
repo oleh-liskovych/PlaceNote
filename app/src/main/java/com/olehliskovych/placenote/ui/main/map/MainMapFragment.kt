@@ -27,8 +27,8 @@ class MainMapFragment : BaseFragment(), OnMapReadyCallback, LocationListener {
 
     private lateinit var binding: FragmentMainMapBinding
     private lateinit var map: GoogleMap
-//    @Inject
-//    lateinit var locationManager: LocationManager
+    @Inject
+    lateinit var locationManager: LocationManager
     @Inject
     lateinit var activity: Activity
 
@@ -50,7 +50,7 @@ class MainMapFragment : BaseFragment(), OnMapReadyCallback, LocationListener {
 
     @SuppressLint("MissingPermission")
     private fun requestLocationUpdates() {
-//        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this)
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this)
     }
 
     @SuppressLint("MissingPermission")
@@ -78,7 +78,7 @@ class MainMapFragment : BaseFragment(), OnMapReadyCallback, LocationListener {
         val latLng = LatLng(location.latitude, location.longitude)
         val cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10f)
         map.animateCamera(cameraUpdate)
-//        locationManager.removeUpdates(this)
+        locationManager.removeUpdates(this)
     }
 
     override fun onStatusChanged(p0: String?, p1: Int, p2: Bundle?) {
