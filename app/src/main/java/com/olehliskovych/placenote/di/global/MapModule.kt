@@ -16,7 +16,7 @@ object MapModule {
     @JvmStatic
     @FragmentScope
     @Provides
-    internal fun provideLocationManager(activity: BaseActivity): LocationManager {
+    fun provideLocationManager(activity: BaseActivity): LocationManager {
         return activity.getSystemService(Context.LOCATION_SERVICE) as LocationManager
     }
 }

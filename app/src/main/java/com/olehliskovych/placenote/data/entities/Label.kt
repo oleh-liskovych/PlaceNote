@@ -1,17 +1,36 @@
 package com.olehliskovych.placenote.data.entities
 
+import android.arch.persistence.room.ColumnInfo
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.ForeignKey
+import android.arch.persistence.room.ForeignKey.CASCADE
+import android.arch.persistence.room.PrimaryKey
 import android.os.Parcel
 import android.os.Parcelable
 
-import io.realm.RealmObject
-import io.realm.annotations.PrimaryKey
 
-open class Label(@PrimaryKey open var name: String = ""): RealmObject(), Parcelable {
-
-    constructor(parcel: Parcel) : this(parcel.readString()) {
+@Entity(tableName = "labels",
+        foreignKeys = [
+    ForeignKey(
+            entity = Note::class,
+            parentColumns = ["id"],
+            childColumns = ["note_id"],
+            onDelete = CASCADE
+    )
+])
+data class Label(
+        @PrimaryKey(autoGenerate = true) var id: Long,
+        var name: String = "",
+        @ColumnInfo(name = "note_id")
+        var noteId: Long? = null
+) : Parcelable {
+    constructor(parcel: Parcel) : this(
+            parcel.readLong(),
+            parcel.readString()) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeLong(id)
         parcel.writeString(name)
     }
 

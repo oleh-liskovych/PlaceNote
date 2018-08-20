@@ -38,11 +38,11 @@ realm {
 ext {
     DAGGER = '2.16'
     GSON = '2.8.2'
-    REALM = '3.0.0'
     rxANDROID = '2.0.2'
     rxJAVA = '2.1.10'
     FLEXBOX = '1.0.0'
     PAGING = '1.0.1'
+    ROOM = '1.1.1'
     GOOGLE_MAPS = '15.0.1'
 }
 
@@ -65,8 +65,6 @@ dependencies {
     implementation "com.google.dagger:dagger-android:${DAGGER}"
     implementation "com.google.dagger:dagger-android-support:${DAGGER}"
 
-    // RealmManager
-    implementation "io.realm:android-adapters:${REALM}"
 
     // Gson
     implementation "com.google.code.gson:gson:${GSON}"
@@ -81,6 +79,11 @@ dependencies {
 
     // Paging
     implementation "android.arch.paging:runtime:${PAGING}"
+
+    // Room
+    implementation "android.arch.persistence.room:runtime:${ROOM}"
+    implementation "android.arch.persistence.room:rxjava2:${ROOM}"
+    kapt "android.arch.persistence.room:compiler:${ROOM}"
 }
 repositories {
     mavenCentral()

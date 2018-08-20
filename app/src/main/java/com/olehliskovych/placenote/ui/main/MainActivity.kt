@@ -8,7 +8,7 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.MenuItem
 import com.olehliskovych.placenote.R
-import com.olehliskovych.placenote.data.Repository.Repository
+import com.olehliskovych.placenote.data.repository.Repository
 import com.olehliskovych.placenote.databinding.ActivityMainBinding
 import com.olehliskovych.placenote.ui.base.BaseActivity
 import javax.inject.Inject
@@ -17,14 +17,14 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     private lateinit var binding: ActivityMainBinding
 
-    @Inject
-    lateinit var repository: Repository
+//    @Inject
+//    lateinit var repository: Repository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        repository.allLabels
+//        repository.allLabels
 
 
         setupUI()

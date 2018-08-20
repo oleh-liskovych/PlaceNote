@@ -7,11 +7,9 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.olehliskovych.placenote.R;
-import com.olehliskovych.placenote.data.Repository.Repository;
-import com.olehliskovych.placenote.data.Repository.realm.RealmManager;
+import com.olehliskovych.placenote.data.repository.Repository;
 import com.olehliskovych.placenote.databinding.ActivityMainBinding;
 import com.olehliskovych.placenote.ui.base.BaseActivity;
 
