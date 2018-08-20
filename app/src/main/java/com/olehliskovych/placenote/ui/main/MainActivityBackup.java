@@ -17,7 +17,7 @@ import com.olehliskovych.placenote.ui.base.BaseActivity;
 
 import javax.inject.Inject;
 
-public class MainActivity extends BaseActivity
+public class MainActivityBackup extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ActivityMainBinding binding;

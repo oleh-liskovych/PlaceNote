@@ -1,4 +1,4 @@
-package com.olehliskovych.placenote.ui.note.details
+package com.olehliskovych.placenote.ui.main.map
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -18,17 +18,17 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.olehliskovych.placenote.R
-import com.olehliskovych.placenote.databinding.FragmentNoteDetailsBinding
+import com.olehliskovych.placenote.databinding.FragmentMainMapBinding
 import com.olehliskovych.placenote.ui.base.BaseFragment
 import com.olehliskovych.placenote.utils.FINE_AND_COARSE_LOCATION_REQUEST_CODE
 import javax.inject.Inject
 
-class NoteDetailsFragment : BaseFragment(), OnMapReadyCallback, LocationListener {
+class MainMapFragment : BaseFragment(), OnMapReadyCallback, LocationListener {
 
-    private lateinit var binding: FragmentNoteDetailsBinding
+    private lateinit var binding: FragmentMainMapBinding
     private lateinit var map: GoogleMap
-    @Inject
-    lateinit var locationManager: LocationManager
+//    @Inject
+//    lateinit var locationManager: LocationManager
     @Inject
     lateinit var activity: Activity
 
@@ -38,20 +38,19 @@ class NoteDetailsFragment : BaseFragment(), OnMapReadyCallback, LocationListener
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_note_details, container, false)
-        setupUI(savedInstanceState)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main_map, container, false)
+        setupMap(savedInstanceState)
         return binding.root
     }
 
-    private fun setupUI(savedInstanceState: Bundle?) {
+    private fun setupMap(savedInstanceState: Bundle?) {
         binding.map.onCreate(savedInstanceState)
         binding.map.getMapAsync(this)
-
     }
 
     @SuppressLint("MissingPermission")
     private fun requestLocationUpdates() {
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this)
+//        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this)
     }
 
     @SuppressLint("MissingPermission")
@@ -75,6 +74,25 @@ class NoteDetailsFragment : BaseFragment(), OnMapReadyCallback, LocationListener
 
     }
 
+    override fun onLocationChanged(location: Location) {
+        val latLng = LatLng(location.latitude, location.longitude)
+        val cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10f)
+        map.animateCamera(cameraUpdate)
+//        locationManager.removeUpdates(this)
+    }
+
+    override fun onStatusChanged(p0: String?, p1: Int, p2: Bundle?) {
+
+    }
+
+    override fun onProviderEnabled(p0: String?) {
+
+    }
+
+    override fun onProviderDisabled(p0: String?) {
+
+    }
+
     override fun onResume() {
         binding.map.onResume()
         super.onResume()
@@ -93,24 +111,5 @@ class NoteDetailsFragment : BaseFragment(), OnMapReadyCallback, LocationListener
     override fun onDestroy() {
         super.onDestroy()
         binding.map.onDestroy()
-    }
-
-    override fun onLocationChanged(location: Location) {
-        val latLng = LatLng(location.latitude, location.longitude)
-        val cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10f)
-        map.animateCamera(cameraUpdate)
-        locationManager.removeUpdates(this)
-    }
-
-    override fun onStatusChanged(s: String, i: Int, bundle: Bundle) {
-
-    }
-
-    override fun onProviderEnabled(s: String) {
-
-    }
-
-    override fun onProviderDisabled(s: String) {
-
     }
 }
