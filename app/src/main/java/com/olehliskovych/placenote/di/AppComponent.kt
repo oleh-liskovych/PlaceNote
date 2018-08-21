@@ -4,8 +4,6 @@ import com.olehliskovych.placenote.App
 import com.olehliskovych.placenote.di.global.ActivityBuildingModule
 import com.olehliskovych.placenote.di.global.AppModule
 import com.olehliskovych.placenote.di.global.DatabaseModule
-import com.olehliskovych.placenote.di.global.MapModule
-
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
