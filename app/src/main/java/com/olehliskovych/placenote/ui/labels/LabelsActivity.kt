@@ -23,7 +23,7 @@ class LabelsActivity : BaseActivity() {
     }
 
     override fun setupUI() {
-        setSupportActionBar(binding!!.toolbar)
+        setSupportActionBar(binding.toolbar)
     }
 
     private fun navigateToLabelList() {

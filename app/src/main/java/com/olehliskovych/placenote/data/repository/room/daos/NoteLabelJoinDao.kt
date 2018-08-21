@@ -1,9 +1,10 @@
-package com.olehliskovych.placenote.data.repository.room
+package com.olehliskovych.placenote.data.repository.room.daos
 
 import android.arch.paging.DataSource
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
+import com.olehliskovych.placenote.data.entities.Label
 import com.olehliskovych.placenote.data.entities.Note
 import com.olehliskovych.placenote.data.entities.NoteLabelJoin
 
@@ -17,5 +18,5 @@ interface NoteLabelJoinDao {
     fun getNotesForLabel(labelId: Long) : DataSource.Factory<Int, Note>
 
     @Query("SELECT * FROM labels INNER JOIN note_label_join ON labels.id=note_label_join.label_id WHERE note_label_join.note_id = :noteId")
-    fun getLabelsForNote(noteId: Long) : DataSource.Factory<Int, Note>
+    fun getLabelsForNote(noteId: Long) : DataSource.Factory<Int, Label>
 }

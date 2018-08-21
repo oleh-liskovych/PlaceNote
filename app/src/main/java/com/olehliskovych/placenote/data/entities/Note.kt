@@ -1,5 +1,6 @@
 package com.olehliskovych.placenote.data.entities
 
+import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 import android.os.Parcel
@@ -14,9 +15,10 @@ data class Note(
         var radius: Int = 100,
         var latitude: Double = 0.toDouble(),
         var longitude: Double = 0.toDouble(),
+        @ColumnInfo(name = "update_date")
         var updateDate: Date = Date()
 ) : Parcelable {
-//        var labels: RealmList<Label> = RealmList(),
+
     constructor(parcel: Parcel) : this(
             parcel.readLong(),
             parcel.readString(),

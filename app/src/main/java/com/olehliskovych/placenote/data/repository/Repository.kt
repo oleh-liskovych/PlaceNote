@@ -8,6 +8,7 @@ import com.olehliskovych.placenote.data.entities.Note
 import io.reactivex.Completable
 import io.reactivex.Flowable
 
+@Deprecated(message = "Noy anymore relevant. Replace with another interface")
 interface Repository {
     val allLabels: Flowable<List<Label>>
     fun getNotesNotesForLabel(label: Label?): DataSource.Factory<Int, Note>

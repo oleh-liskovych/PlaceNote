@@ -4,14 +4,15 @@ import com.olehliskovych.placenote.App
 import com.olehliskovych.placenote.di.global.ActivityBuildingModule
 import com.olehliskovych.placenote.di.global.AppModule
 import com.olehliskovych.placenote.di.global.DatabaseModule
-import com.olehliskovych.placenote.di.scopes.AppScope
+import com.olehliskovych.placenote.di.global.MapModule
 
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
+import javax.inject.Singleton
 
-@AppScope
+@Singleton
 @Component(modules = [
     AndroidSupportInjectionModule::class,
     ActivityBuildingModule::class,
