@@ -1,10 +1,7 @@
 package com.olehliskovych.placenote.data.entities
 
-import android.arch.persistence.room.ColumnInfo
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.ForeignKey
+import android.arch.persistence.room.*
 import android.arch.persistence.room.ForeignKey.CASCADE
-import android.arch.persistence.room.PrimaryKey
 import android.os.Parcel
 import android.os.Parcelable
 import java.util.*
@@ -12,13 +9,14 @@ import java.util.*
 
 @Entity(tableName = "labels",
         foreignKeys = [
-    ForeignKey(
-            entity = Note::class,
-            parentColumns = ["id"],
-            childColumns = ["note_id"],
-            onDelete = CASCADE
-    )
-])
+            ForeignKey(
+                    entity = Note::class,
+                    parentColumns = ["id"],
+                    childColumns = ["note_id"],
+                    onDelete = CASCADE
+            )
+        ], indices = [
+    (Index("note_id"))])
 data class Label(
         @PrimaryKey(autoGenerate = true) var id: Long,
         var name: String = "",

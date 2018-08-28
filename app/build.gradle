@@ -57,8 +57,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     // Dagger2
-//    annotationProcessor "com.google.dagger:dagger-compiler:${DAGGER}"
-//    annotationProcessor "com.google.dagger:dagger-android-processor:${DAGGER}"
     kapt "com.google.dagger:dagger-compiler:${DAGGER}"
     kapt "com.google.dagger:dagger-android-processor:${DAGGER}"
     implementation "com.google.dagger:dagger:${DAGGER}"

@@ -13,7 +13,7 @@ import com.olehliskovych.placenote.data.repository.room.daos.NoteDao
 import com.olehliskovych.placenote.data.repository.room.daos.NoteLabelJoinDao
 import com.olehliskovych.placenote.utils.SingletonHolder
 
-@Database(entities = [Note::class, Label::class, NoteLabelJoin::class], version = 1)
+@Database(entities = [Note::class, Label::class, NoteLabelJoin::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class PNDatabase : RoomDatabase() {
 
