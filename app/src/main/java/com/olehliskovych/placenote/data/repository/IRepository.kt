@@ -4,12 +4,13 @@ import android.arch.paging.DataSource
 import android.arch.paging.PagedList
 import com.olehliskovych.placenote.data.entities.Label
 import com.olehliskovych.placenote.data.entities.Note
+import com.olehliskovych.placenote.ui.base.BaseRepository
 
 import io.reactivex.Completable
 import io.reactivex.Flowable
 
 @Deprecated(message = "Not anymore relevant. Split it to interfaces for Map, List and Details ones")
-interface IRepository {
+interface IRepository : BaseRepository {
     fun getNotesNotesForLabel(label: Label?): DataSource.Factory<Int, Note>
     fun updateNote(note: Note): Completable
     fun insertNote(note: Note): Completable

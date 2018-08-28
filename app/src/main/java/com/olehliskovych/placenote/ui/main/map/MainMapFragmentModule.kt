@@ -20,9 +20,9 @@ interface MainMapFragmentModule {
 
     @FragmentScope
     @Binds
-    fun bindMainRepository(mainRepository: Repository) : IRepository
+    fun bindMapRepository(mapRepository: Repository) : IRepository
 
     @FragmentScope
     @Binds
-    fun bindMainViewModel(mainViewModel: MainMapViewModel) : ViewModel
+    fun bindMapViewModel(mapViewModel: MainMapViewModel) : ViewModel
 }
